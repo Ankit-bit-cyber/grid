@@ -52,7 +52,6 @@ You need **Node.js 18+** installed. Two terminal windows: one for the backend, o
 ```bash
 cd backend
 npm install
-cp .env.example .env
 npm run dev
 ```
 
@@ -70,7 +69,6 @@ In a second terminal:
 ```bash
 cd frontend
 npm install
-cp .env.example .env
 npm run dev
 ```
 
