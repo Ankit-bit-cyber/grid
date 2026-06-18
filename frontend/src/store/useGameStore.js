@@ -90,6 +90,22 @@ const useGameStore = create((set, get) => ({
       }));
     });
 
+    socket.on('grid_reset', (data) => {
+      const cells = {};
+      data.grid.forEach((cell) => {
+        cells[cell.cellId] = {
+          ownerId: cell.ownerId,
+          ownerName: cell.ownerName,
+          color: cell.color,
+        };
+      });
+      set({
+        cells,
+        leaderboard: data.leaderboard,
+        activityFeed: data.activityFeed,
+      });
+    });
+
     socket.connect();
   },
 
@@ -97,6 +113,10 @@ const useGameStore = create((set, get) => ({
     const cell = get().cells[cellId];
     if (cell && cell.ownerId) return; // already claimed, don't bother the server
     socket.emit('capture_cell', { cellId });
+  },
+
+  resetGrid: () => {
+    socket.emit('reset_grid');
   },
 }));
 

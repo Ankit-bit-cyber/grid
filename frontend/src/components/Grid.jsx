@@ -10,6 +10,7 @@ export default function Grid() {
   const cells = useGameStore((s) => s.cells);
   const rejectedCellId = useGameStore((s) => s.rejectedCellId);
   const captureCell = useGameStore((s) => s.captureCell);
+  const resetGrid = useGameStore((s) => s.resetGrid);
 
   const [zoom, setZoom] = useState(1);
   const [hovered, setHovered] = useState(null); // { cellId, x, y }
@@ -100,6 +101,12 @@ export default function Grid() {
           </span>
         </div>
         <div className="flex items-center gap-1.5">
+          <button
+            onClick={resetGrid}
+            className="mr-2 rounded-sm border border-line bg-base-900 px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.1em] text-brick hover:border-brick/40 hover:bg-brick/10"
+          >
+            Reset
+          </button>
           <button
             onClick={() => setZoom((z) => Math.max(0.6, +(z - 0.25).toFixed(2)))}
             className="h-6 w-6 rounded-sm border border-line text-ink-muted hover:border-brass/40 hover:text-ink"
