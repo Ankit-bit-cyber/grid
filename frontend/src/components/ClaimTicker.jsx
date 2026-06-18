@@ -35,9 +35,18 @@ export default function ClaimTicker() {
       </span>
     ));
 
+  // The marquee moves a percentage of its own (content-dependent) width per
+  // loop, so a fixed duration would speed up as more claims arrive and the
+  // list grows. Scaling duration with item count keeps the pace steady and
+  // slow regardless of how busy the feed gets. Raise SECONDS_PER_ITEM for
+  // an even slower crawl.
+  const SECONDS_PER_ITEM = 6.5;
+  const MIN_DURATION_SECONDS = 26;
+  const duration = Math.max(items.length * SECONDS_PER_ITEM, MIN_DURATION_SECONDS);
+
   return (
     <div className="overflow-hidden border-b border-line bg-base-800 py-2">
-      <div className="ticker-track">
+      <div className="ticker-track" style={{ animationDuration: `${duration}s` }}>
         {renderItems('a')}
         {renderItems('b')}
       </div>
