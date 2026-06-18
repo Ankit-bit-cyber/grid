@@ -145,6 +145,15 @@ function captureCell(userId, cellId) {
   return { success: true, cell, user };
 }
 
+function resetGrid() {
+  initGrid();
+  for (const user of users.values()) {
+    user.capturedBlocks = 0;
+  }
+  activityFeed.length = 0;
+  return pushActivity('system', 'Playground was reset');
+}
+
 module.exports = {
   GRID_SIZE,
   grid,
@@ -159,4 +168,5 @@ module.exports = {
   getActivityFeed,
   getLeaderboard,
   captureCell,
+  resetGrid,
 };

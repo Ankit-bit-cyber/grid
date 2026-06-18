@@ -76,6 +76,25 @@ function registerSocketHandlers(io) {
       socket.emit('stats_update', { capturedBlocks: user.capturedBlocks });
     });
 
+    socket.on('reset_grid', () => {
+      state.resetGrid();
+
+      io.emit('grid_reset', {
+        grid: state.getGridSnapshot(),
+        leaderboard: state.getLeaderboard(),
+        activityFeed: state.getActivityFeed(),
+      });
+
+      // Update personal stats for all connected clients since capturedBlocks is now 0.
+      for (const [sId, s] of io.sockets.sockets) {
+        const uId = s.data.userId;
+        const u = state.users.get(uId);
+        if (u) {
+          s.emit('stats_update', { capturedBlocks: u.capturedBlocks });
+        }
+      }
+    });
+
     socket.on('disconnect', () => {
       state.onlineSocketIds.delete(socket.id);
       user.online = false;
