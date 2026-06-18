@@ -56,3 +56,12 @@ body {
     animation: none !important;
   }
 }
+.ticker-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation-name: ticker-scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 60s; /* fallback only; ClaimTicker.jsx overrides this inline */
+}
