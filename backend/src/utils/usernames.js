@@ -1,14 +1,14 @@
 // Generates short tactical-sounding callsigns for anonymous players.
 const PREFIXES = [
-  'Swift', 'Iron', 'Shadow', 'Crimson', 'Golden', 'Silent', 'Rapid', 'Cosmic',
-  'Storm', 'Night', 'Steel', 'Blaze', 'Frost', 'Ghost', 'Thunder', 'Viper',
-  'Quantum', 'Rogue', 'Echo', 'Titan'
+  'Ankit', 'Aditya', 'Anirudh', 'Progyan', 'Ansh', 'Sunny', 'Ayush', 'Amit',
+  'Sahil', 'Harshit', 'Navnit', 'Himanshu', 'Arpit', 'Ajit', 'Som', 'Varun',
+  'Sidhart', 'Rahul', 'Ashish', 'Virat'
 ];
 
 const SUFFIXES = [
-  'Hawk', 'Wolf', 'Falcon', 'Dragon', 'Phoenix', 'Raven', 'Panther', 'Tiger',
-  'Cobra', 'Lynx', 'Eagle', 'Bear', 'Fox', 'Shark', 'Lion', 'Hornet',
-  'Comet', 'Blade', 'Scout', 'Ranger'
+  'Kohli', 'Kumar', 'Singh', 'Patel', 'Jain', 'Kumar', 'Chopra', 'Nair',
+  'Arya', 'Agarwal', 'Gupta', 'Verma', 'Sharma', 'Roy', 'Patel', 'Rana',
+  'Gupta', 'Kohli', 'Chopra', 'Reddy'
 ];
 
 function generateUsername() {
