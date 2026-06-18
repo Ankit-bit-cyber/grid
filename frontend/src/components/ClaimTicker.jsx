@@ -5,6 +5,7 @@ const TYPE_DOT = {
   capture: 'bg-brass',
   join: 'bg-emerald-400/70',
   leave: 'bg-ink-faint',
+  system: 'bg-brick',
 };
 
 export default function ClaimTicker() {
